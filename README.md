@@ -119,7 +119,11 @@ After writing EXIF tags:
 
 This tool was born out of necessity, a single part of a larger project to clean up tens of thousands of photos exported from Ente, spanning over 20 years. Ente works great as a backup, but on the export side the sidecar-only metadata makes it painful to actually use the exported files anywhere else. At this time and the time of the project, there's no built-in "embed metadata on export" option, no scripting API, and no way to do this from within the app. If you've hit the same wall, this tool handles the EXIF part so you don't have to.
 
-If you need help, feel free to reach out. If you like this tool, feel free to leave a star. Big shoutout to Phil Harvey for [exiftool](https://exiftool.org), and to the Ente community. I encourage all Ente users to contribute suggestions and feedback to [Ente.io](https://github.com/ente-io/ente) it's a great piece of software and the developers have done a fantastic job, putting in great work into their product.
+If you need help, feel free to reach out. If you like this tool, feel free to leave a star. 
+
+Big shoutout to Phil Harvey for [exiftool](https://exiftool.org).
+
+Another big shoutout to the Ente community. I encourage all Ente users to contribute suggestions and feedback to [Ente.io](https://github.com/ente-io/ente) it's a great piece of software and the developers have done a fantastic job, putting in great work into their product.
 
 ## License
 
