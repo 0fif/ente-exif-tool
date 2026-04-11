@@ -1,23 +1,23 @@
 # ente-exif-tool
 
-Write [Ente Photos](https://ente.io) export metadata into image and video EXIF tags, making them fully readable by Immich, PhotoPrism, Apple Photos, Google Photos, and most photo apps that read standard EXIF data.
+Write [Ente Photos](https://ente.io) export metadata into image and video EXIF tags, making them fully readable by Immich, PhotoPrism, Apple Photos, Google Photos, and apps that read standard EXIF data.
 
 ## The problem
 
 When you export from Ente Photos, your metadata (dates, GPS coordinates) lives in JSON sidecar files next to each image, unfortunately not embedded in the files themselves. Most photo apps don't support these files and ultimately end up ignoring the sidecars entirely.. so when you import your export into Apple Photos (or almost anything else), your photos lose their dates and locations. Everything lands in a heap with "today's date" as per Ente's seemingly current export process. 
 
-Ente currently does not offer an "export with metadata embedded" option, and there's no built-in way to bake sidecar data back into your files. Whether you are using Windows, Mac, or Linux, your photo data are not likely to survive this process. If you want your exported photos to actually work in another app, you're on your own with exiftool and a script. Unfortunately, some of Ente's competitors do not support the JSON format and prefer XMP (or others).
+Ente currently does not offer an "export with metadata embedded" option, and there's no built-in way to bake sidecar data back into your files. Whether you are using Windows, Mac, or Linux, your photo data are not likely to survive the export process. If you want your exported photos to work in another app, you're on your own. Additioanlly, some of Ente's competitors do not support the JSON format and prefer XMP (or others).
 
-This tool is that script, cleaned up and packaged so you don't have to do it yourself manually. 
+This tool is the solution, cleaned up and packaged so you don't have to do it yourself manually. 
 
 ## What this does
 
-Scans your Ente export, matches each media file to its JSON sidecar, and writes the metadata directly into the file's EXIF tags using [ExifTool](https://exiftool.org):
+This tool scans your Ente export, matches each media file to its JSON sidecar, and writes the metadata directly into the file's EXIF tags using [ExifTool](https://exiftool.org):
 
 - **DateTimeOriginal** / **CreateDate** / **ModifyDate**: photos sort correctly by date
 - **GPSLatitude** / **GPSLongitude**: location data shows up on the map
 
-After running this, you can drag the folder into Apple Photos and everything just works; injected correct dates, locations, and sort order.
+After running this, you can drag the folder into your other app (or to nowhere!) and everything just works; injected with correct dates, locations, and sort order.
 
 ## Requirements
 
@@ -41,7 +41,7 @@ python -m ente_exif /path/to/export
 
 ## Usage
 
-Your Ente export should look like this (this is the default export format as per December 9, 2026):
+Your Ente export should look like this (this is the default export format as per December 9, 2025):
 
 ```
 Ente Photos/
@@ -104,7 +104,7 @@ Ente stores photo-taken times as UTC. By default, this tool converts them to you
 
 You can use `--utc` if your photos span multiple timezones and you want to preserve UTC as the default time zone. Be aware that most photo apps will then display the raw UTC time rather than the wall-clock time the photo was taken at.
 
-**Heads up:** If you've previously written EXIF data with a naive UTC-to-local conversion (e.g. a script that used `datetime.fromtimestamp()` without timezone awareness), photos taken outside your local timezone will have wrong dates. I learned this the hard way and sank dozens of hours into a clean-up project. This tool handles that correctly by using timezone-aware conversions throughout.
+**Heads up:** If you've previously written EXIF data with a naive UTC-to-local conversion (e.g. a script that used `datetime.fromtimestamp()` without timezone awareness), photos taken outside your local timezone will have wrong dates. I learned this the hard way. This tool handles that correctly by using timezone-aware conversions throughout.
 
 ## Importing into Apple Photos (Should work for Google Photos and others)
 
@@ -117,9 +117,9 @@ After writing EXIF tags:
 
 ## Background
 
-This tool was born out of necessity, a larger project to clean up tens of thousands of photos exported from Ente spanning over 20 years. The Ente export works fine as a backup, but the sidecar-only metadata makes it painful to actually use the files anywhere else. At this time and the time of the project, there's no built-in "embed metadata on export" option, no scripting API, and no way to do this from within the app. If you've hit the same wall, this tool handles the EXIF part so you don't have to.
+This tool was born out of necessity, a single part of a larger project to clean up tens of thousands of photos exported from Ente, spanning over 20 years. Ente works great as a backup, but on the export side the sidecar-only metadata makes it painful to actually use the exported files anywhere else. At this time and the time of the project, there's no built-in "embed metadata on export" option, no scripting API, and no way to do this from within the app. If you've hit the same wall, this tool handles the EXIF part so you don't have to.
 
-Feel free to contribute your suggestions and feedback to [Ente.io](https://github.com/ente-io/ente) it's a great tool and the developers have done a fantastic job, putting in great work into their product.
+If you need help, feel free to reach out. If you like this tool, feel free to leave a star. Big shoutout to Phil Harvey for [exiftool](https://exiftool.org), and to the Ente community. I encourage all Ente users to contribute suggestions and feedback to [Ente.io](https://github.com/ente-io/ente) it's a great piece of software and the developers have done a fantastic job, putting in great work into their product.
 
 ## License
 
