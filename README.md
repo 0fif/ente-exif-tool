@@ -1,6 +1,6 @@
 # ente-exif-tool
 
-Write [Ente Photos](https://ente.io) export metadata into image and video EXIF tags, making them fully readable by Immich, PhotoPrism, Apple Photos, Google Photos, and most that reads standard EXIF data.
+Write [Ente Photos](https://ente.io) export metadata into image and video EXIF tags, making them fully readable by Immich, PhotoPrism, Apple Photos, Google Photos, and most photo apps that read standard EXIF data.
 
 ## The problem
 
@@ -117,9 +117,9 @@ After writing EXIF tags:
 
 ## Background
 
-This tool was born out of a larger project to clean up tens of thousands of photos exported from Ente spanning over 20 years. The Ente export works fine as a backup, but the sidecar-only metadata makes it painful to actually use the files anywhere else. There's no built-in "embed metadata on export" option, no scripting API, and no way to do this from within the app. If you've hit the same wall, this tool handles the EXIF part so you don't have to.
+This tool was born out of necessity, a larger project to clean up tens of thousands of photos exported from Ente spanning over 20 years. The Ente export works fine as a backup, but the sidecar-only metadata makes it painful to actually use the files anywhere else. At this time and the time of the project, there's no built-in "embed metadata on export" option, no scripting API, and no way to do this from within the app. If you've hit the same wall, this tool handles the EXIF part so you don't have to.
 
-Feel free to contribute suggestions and feedback to [Ente.io](https://github.com/ente-io/ente) it's a great tool and the developers have done a fantastic job, putting in great work into their product.
+Feel free to contribute your suggestions and feedback to [Ente.io](https://github.com/ente-io/ente) it's a great tool and the developers have done a fantastic job, putting in great work into their product.
 
 ## License
 
