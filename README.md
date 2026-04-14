@@ -2,6 +2,10 @@
 
 Write [Ente Photos](https://ente.io) export metadata into image and video EXIF tags, making them fully readable by Immich, PhotoPrism, Apple Photos, Google Photos, and apps that read standard EXIF data.
 
+**Not affiliated with Ente.io nor their apps.**
+
+Ente is just where my export came from and Ente's lack of cleaning tools name is why I made this.
+
 ## The problem
 
 When you export from Ente Photos, your metadata (dates, GPS coordinates) lives in JSON sidecar files next to each image, unfortunately not embedded in the files themselves. Most photo apps don't support these files and ultimately end up ignoring the sidecars entirely.. so when you import your export into Apple Photos (or almost anything else), your photos lose their dates and locations. Everything lands in a heap with "today's date" as per Ente's seemingly current export process. 
